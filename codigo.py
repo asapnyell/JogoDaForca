@@ -26,7 +26,9 @@ def jogar():
 
         if tentativas == 1:
             tentativa_palavra = input("Última tentativa! Você quer tentar adivinhar a palavra? (sim / nao): ").lower()
+
             while tentativa_palavra not in ('sim', 'nao'):
+                 
                  tentativa_palavra = input("Por favor, responda com 'sim' ou 'não': ").lower()
 
             if tentativa_palavra == 'sim':
@@ -35,7 +37,7 @@ def jogar():
                     print("\nParabéns! Você adivinhou a palavra:", palavra)
                     break
                 else:
-                    print("Palpite incorreto! A palavra era:", palavra) # Penaliza a tentativa se o palpite estiver errado
+                    print("Palpite incorreto! A palavra era:", palavra) 
                     break
             
         letra = input("Digite uma letra: ").lower()
