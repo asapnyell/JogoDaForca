@@ -15,7 +15,7 @@ def jogar():
     palavras = ['granbery', 'espacial', 'estrela', 'caneta', 'borracha', 'forca']
     print("Escolha um número entre 0 e", len(palavras) - 1, "para selecionar a palavra:")
 
-    indice = int(input("Digite um numero escolher uma palavra aleatoria: "))
+    indice = int(input("Digite um numero para escolher uma palavra aleatoria: "))
     
     print("*"*30)
     while indice < 0 or indice >= len(palavras):
@@ -45,7 +45,7 @@ def jogar():
                     tentativas -= 1  # Penaliza a tentativa se o palpite estiver errado
                     break
             
-        letra = input("Digite uma letra: ")
+        letra = input("Digite uma letra: ").lower()
         print("*"*30)
         if len(letra) != 1 or not letra.isalpha():
 
