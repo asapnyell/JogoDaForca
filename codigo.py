@@ -15,7 +15,8 @@ def jogar():
     palavras = ['granbery', 'espacial', 'estrela', 'caneta', 'borracha', 'forca']
     print("Escolha um número entre 0 e", len(palavras) - 1, "para selecionar a palavra:")
 
-    indice = int(input("Digite o numero da palavra escolhida: "))
+    indice = int(input("Digite um numero escolher uma palavra aleatoria: "))
+    
     print("*"*30)
     while indice < 0 or indice >= len(palavras):
         print("Índice inválido. Escolha um número entre 0 e", len(palavras) - 1)
@@ -30,7 +31,10 @@ def jogar():
         print(f"Tentativas restantes: {tentativas}")
 
         if tentativas == 1:
-            tentativa_palavra = input("Última tentativa! Você quer tentar adivinhar a palavra? (sim/nao): ").lower()
+            tentativa_palavra = input("Última tentativa! Você quer tentar adivinhar a palavra? (sim / nao): ").lower()
+            while tentativa_palavra not in ('sim', 'nao'):
+                 tentativa_palavra = input("Por favor, responda com 'sim' ou 'não': ").lower()
+
             if tentativa_palavra == 'sim':
                 palpite = input("Digite a palavra: ")
                 if palpite == palavra:
@@ -40,12 +44,11 @@ def jogar():
                     print("Palpite incorreto! A palavra era:", palavra)
                     tentativas -= 1  # Penaliza a tentativa se o palpite estiver errado
                     break
-            else:
-                print("Por favor, responda com 'sim' ou 'nao'.")
-
+            
         letra = input("Digite uma letra: ")
         print("*"*30)
-        if len(letra) != 1:
+        if len(letra) != 1 or not letra.isalpha():
+
             print("Por favor, digite apenas uma letra")
             continue
         if letra in letras_advinhadas:
