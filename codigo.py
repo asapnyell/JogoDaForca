@@ -1,4 +1,6 @@
-print('Bem Vindo ao jogo da forca')
+import random
+
+print('BEM VINDO AO JOGO DA FORCA')
 print('*'*30)
 
 def exibir_progresso(palavra, letras_adivinhadas):
@@ -13,16 +15,8 @@ def exibir_progresso(palavra, letras_adivinhadas):
 
 def jogar():
     palavras = ['granbery', 'espacial', 'estrela', 'caneta', 'borracha', 'forca']
-    print("Escolha um número entre 0 e", len(palavras) - 1, "para selecionar a palavra:")
 
-    indice = int(input("Digite um numero para escolher uma palavra aleatoria: "))
-    
-    print("*"*30)
-    while indice < 0 or indice >= len(palavras):
-        print("Índice inválido. Escolha um número entre 0 e", len(palavras) - 1)
-        indice = int(input("Digite o numero para escolher uma palavra: "))
-
-    palavra = palavras[indice]
+    palavra = random.choice(palavras)
     letras_advinhadas = []
     tentativas = 6
 
@@ -41,8 +35,7 @@ def jogar():
                     print("\nParabéns! Você adivinhou a palavra:", palavra)
                     break
                 else:
-                    print("Palpite incorreto! A palavra era:", palavra)
-                    tentativas -= 1  # Penaliza a tentativa se o palpite estiver errado
+                    print("Palpite incorreto! A palavra era:", palavra) # Penaliza a tentativa se o palpite estiver errado
                     break
             
         letra = input("Digite uma letra: ").lower()
@@ -56,7 +49,7 @@ def jogar():
             continue
         letras_advinhadas.append(letra)
 
-        if letra in palavra or letra not in palavra:
+        if letra not in palavra:
             tentativas -= 1
 
         # Verifica se todas as letras foram advinhadas
